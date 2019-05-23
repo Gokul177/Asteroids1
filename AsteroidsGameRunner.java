@@ -1,19 +1,12 @@
 import java.awt.*;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import javax.swing.*;
-import javax.swing.Action;
-import javax.swing.ActionMap;
-import javax.swing.InputMap;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.KeyStroke;
 
 
 
@@ -22,6 +15,7 @@ public class AsteroidsGameRunner {
 	private AsteroidGame game = new AsteroidGame();
 	private Timer timer;
 	private int ticks;
+
 	
 	// Notice this intuitive method for finding the screen size 
 	public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -52,11 +46,10 @@ public class AsteroidsGameRunner {
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 		        g.setColor(Color.gray);
-		        g.drawOval(100, 100, 100, 100);
 				Toolkit.getDefaultToolkit().sync();
 			}
 		};
-		panel.setBackground(new Color(20, 15, 120));
+		panel.setBackground(new Color(0, 0, 0));
 		panel.setPreferredSize(new Dimension(WIDTH,HEIGHT));
 		frame.setLocation(WIDTH/10, HEIGHT/10);
 
@@ -76,6 +69,17 @@ public class AsteroidsGameRunner {
 			}
 		});
 		timer.start();
+		}
+	
+		public void loadGame(ArrayList<Gameobject> GameObjects){
+			for(int i=0; i<GameObjects.size(); i++){
+				if(GameObjects.get(i) == Asteroid){
+					
+					
+				}
+				
+			}
+			
 		}
 
 	// this method is called every time the timer goes off (which right now is every 10 milliseconds = 100 times per second
@@ -159,13 +163,12 @@ public class AsteroidsGameRunner {
 		game.keyHit(s);
 		panel.repaint();
 	}
-	protected void drawGame(Graphics g) {
-
+	public void drawGame(Graphics g) {
+		
 	}
-	public void paintComponent(Graphics g)
+	public void paint(Graphics g)
     {
-        g.setColor(Color.red);
-        g.drawOval(100, 10, 30, 40);
+
     }
 
 }
