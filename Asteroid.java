@@ -1,8 +1,14 @@
 
-public class Asteroid {
+import java.util.ArrayList;
+import java.util.List;
 
-	public Asteroid() {
-		// TODO Auto-generated constructor stub
+
+public class Asteroid extends Gameobject{
+	public int radius;
+	public int centerX, centerY;
+	
+	public Asteroid(int center, int radius) {
+		super(center, radius);
+		
 	}
-
 }
