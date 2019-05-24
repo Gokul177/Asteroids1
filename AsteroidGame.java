@@ -13,11 +13,17 @@ public class AsteroidGame{
 		ArrayList<Gameobject> GameObjects = new ArrayList<>();
 			
 	}
-	
-	
+	private void remove(){
+		for(object:GameObjects){
+			int a = object.getHealth();
+			if(a = 0){
+				Gameobjects.remove();
+			}	
+		}	
+	}
 
 	private void addAsteroid(){
-		int r = (int)Math.random()*2;
+		int r = (int)(Math.random()*2);
 		for(int i = 0; i<=10; i++){
 			if(r<1){
 				
