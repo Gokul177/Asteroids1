@@ -7,6 +7,7 @@ public class AsteroidGame{
 	private ArrayList<Gameobject> GameObjects;
 	private Gameobject BigAsteroid;
 	private Gameobject SmallAsteroid;
+	public int Score;
 	
 	public AsteroidGame(){
 		
@@ -15,10 +16,11 @@ public class AsteroidGame{
 			
 	}
 	private void remove(){
-		for(object:GameObjects){
+		for(int i=GameObjects.size(); i < 0; i--){
 			int a = object.getHealth();
 			if(a = 0){
-				Gameobjects.remove();
+				Gameobjects.remove(i);
+				score++;
 			}	
 		}	
 	}
