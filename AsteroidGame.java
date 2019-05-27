@@ -11,6 +11,7 @@ public class AsteroidGame{
 	public AsteroidGame(){
 		
 		ArrayList<Gameobject> GameObjects = new ArrayList<>();
+		this.score++;
 			
 	}
 	private void remove(){
