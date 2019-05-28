@@ -26,7 +26,22 @@ public class AsteroidGame {
 	}
 
 	public boolean collide() {
-		
+		for(int i = 0; i < Gameobjects.size(); i ++){
+			for(int o = i + 1; o < Gameobjects.size(); o++){
+				if((Gameobjects.get(i)).overlaps(Gameobjects.get(o))){
+					//Gameobjects.get(i).changeHealth(-1)
+					//Gameobjects.get(o).changeHealth(-1)
+				}	
+			}	
+		}
+		for(int i = 0; i < Gameobjects.size(); i ++){
+			for(int a; o < Projectile.size(); o++){
+				if((Gameobjects.get(i)).overlaps(Projectile.get(o))){
+					//Gameobjects.get(i).changeHealth(-1)
+					Projectile.remove(o)
+				}	
+			}	
+		}
 		return false;
 	}
 	public void createAsteroid() {
