@@ -1,5 +1,7 @@
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,19 +10,22 @@ public class AsteroidGame{
 	private Gameobject BigAsteroid;
 	private Gameobject SmallAsteroid;
 	public int Score;
+	public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	public static final int WIDTH = (int) (screenSize.getWidth()*3/4),HEIGHT=(int) (screenSize.getHeight()*3/4);
+
 	
 	public AsteroidGame(){
 		
 		ArrayList<Gameobject> GameObjects = new ArrayList<>();
-		this.score++;
+		this.Score++;
 			
 	}
 	private void remove(){
 		for(int i=GameObjects.size(); i < 0; i--){
-			int a = object.getHealth();
-			if(a = 0){
-				Gameobjects.remove(i);
-				score++;
+			int a = GameObjects.get(i).getHealth();
+			if(a == 0){
+				GameObjects.remove(i);
+				Score++;
 			}	
 		}	
 	}
@@ -36,9 +41,17 @@ public class AsteroidGame{
 				GameObjects.add(SmallAsteroid);
 			}
 		}
-			
 		
 	}
+	
+	public void moveAcrossScreen(Graphics j) { 
+		for(int x = 100; x<WIDTH; x+=100){ 
+			for(int y = 50; y<HEIGHT; y+=100){ 
+				j.drawOval(x, y, 100, 100); 
+				g.dispose(); 
+				} 
+			} 
+		}
 	
 	public void keyHit(String s) {
 		// TODO Auto-generated method stub
