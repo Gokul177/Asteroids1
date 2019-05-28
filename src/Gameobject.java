@@ -56,4 +56,10 @@ public class Gameobject implements ActionListener{
 	public int setHealth(int n){
 		return health+=n;
 	}
+	public int getXpos(){
+		return x;
+	}
+	public int getYpos(){
+		return y;
+	}
 }
