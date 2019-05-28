@@ -8,6 +8,7 @@ import javax.swing.Timer;
 public class Gameobject implements ActionListener{
 	private int X;
 	private int Y; 
+	private int health;
 	private Rectangle rect;
 	int pos;
 	
@@ -49,5 +50,12 @@ public class Gameobject implements ActionListener{
 	public boolean overlaps( Gameobject g) {
 		return this.rect().intersects(g.rect());
 	}
-	
+		public int getHealth() {
+		return health;
+	}
+	public int setHealth(int n){
+		int s = this.getHealth();
+		s += n;
+		return s;
+	}
 }
