@@ -54,7 +54,6 @@ public class Gameobject implements ActionListener{
 		return health;
 	}
 	public int setHealth(int n){
-		health = n;
-		return health;
+		return health+=n;
 	}
 }
