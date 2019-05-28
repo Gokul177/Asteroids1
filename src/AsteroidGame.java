@@ -35,7 +35,7 @@ public class AsteroidGame {
 			}	
 		}
 		for(int i = 0; i < Gameobjects.size(); i ++){
-			for(int a; o < Projectile.size(); o++){
+			for(int o; o < Projectile.size(); o++){
 				if((Gameobjects.get(i)).overlaps(Projectile.get(o))){
 					//Gameobjects.get(i).changeHealth(-1)
 					Projectile.remove(o)
