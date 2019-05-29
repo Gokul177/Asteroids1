@@ -50,11 +50,11 @@ public class Gameobject implements ActionListener{
 	public boolean overlaps( Gameobject g) {
 		return this.rect().intersects(g.rect());
 	}
-		public int getHealth() {
+	public int getHealth() {
 		return health;
 	}
 	public int setHealth(int n){
-		return health+=n;
+		 health = n;
 	}
 	public int getXpos(){
 		return x;
