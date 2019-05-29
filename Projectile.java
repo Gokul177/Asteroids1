@@ -1,37 +1,55 @@
+import java.awt.Color;
+
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
+import java.awt.Shape;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.geom.AffineTransform;
+
+import javax.swing.JPanel;
+import javax.swing.Timer;
 /**
  * 
  * @author gokuldeep
  *
  */
-public class Projectile {
-  
-  private static final String PATH_PREFIX = "/";
-	private int row ;
-	private int col;
-	public Image Img;
-	public double SCALE_FACTOR = 0.04;
-	public Projectile (int r, int c){
-		row = r;
-		col = c;
-		Img = getImage();
-	}
-	public Image getImage() {
-		Image Img = null;
-		String getter = PATH_PREFIX+ "ball.png";
-		try{
-			Img = ImageIO.read(getClass().getResource(getter));
-		}catch (IOException e) {
-			
-		}
-		return Img;
+public class Projectile extends JPanel implements ActionListener {
+	private int X ;
+	private int Y;
+	double rot;
+	
+	public Projectile (ProjectileShip s, int rotation){
+		System.out.println("projectile..");
+		X = s.getX() + 20;
+		Y = s.getY() - 10;
+		rot = rotation;
+		pos = s.getY();
+		tm.start();
 		
 	}
+	Timer tm = new Timer(1, this);
+	int  pos;
+	int vel= 1;
+	
 	public void draw (Graphics g) {
-		g.drawImage(Img, 100, 100, null);
+		g.setColor(new Color(20, 100, 200));
+		Graphics2D g2 = (Graphics2D) g;
+		g2.rotate(Math.toRadians(rot));
+		g.drawRect(this.X,pos, 5, 20);
+		g2.rotate(-1 * Math.toRadians(rot));
+		repaint();
+	}
+		
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		pos = pos - vel;		
 	}
 	
 	
-
+	
 
 }
+ 
