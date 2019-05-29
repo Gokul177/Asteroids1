@@ -27,11 +27,9 @@ public class AsteroidGame {
 
 	public boolean collide() {
 		for(int i = 0; i < Gameobjects.size(); i ++){
-			for(int o = i + 1; o < Gameobjects.size(); o++){
-				if((Gameobjects.get(i)).overlaps(Gameobjects.get(o))){
-						//
-						
-					}
+			if(Gameobjects.get(i).overlaps(ProjectileShip)){
+				return true;
+				//end game
 				}	
 			}	
 		}
@@ -42,9 +40,21 @@ public class AsteroidGame {
 					if(//Gameobject.get(i).isBig){
 						int x = Gameobject.get(i)//.getXpos
 						int y = Gameobject.get(i)//.getYpos
+						double z = (int)(Math.random()*2);
+						int ax = x + Math.cos(z)*50;
+						int ay = y + Math.sin(z)*50;
+						int bx = x + Math.cos(z)*50;
+						int by = y + Math.sin(z)*50;
+						//new asteriod a at (ax,ay) and radius of 50
+						//new asteriod b at (bx,by) and radius of fifty
+						Gameobject.add(a);
+						Gameobject.add(b);
 						
-				}	
-			}	
+					else{
+						Gameobject.remove(i)
+					}	
+				}		
+			}
 		}
 		return false;
 	}
