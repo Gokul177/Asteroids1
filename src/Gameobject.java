@@ -53,7 +53,7 @@ public class Gameobject implements ActionListener{
 	public int getHealth() {
 		return health;
 	}
-	public int setHealth(int n){
+	public void setHealth(int n){
 		 health = n;
 	}
 	public int getXpos(){
