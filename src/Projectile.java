@@ -47,8 +47,9 @@ public class Projectile extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		pos = pos - vel;		
 	}
-	
-	
+	public boolean overlaps( Gameobject g) {
+		return this.rect().intersects(g.rect());
+	}
 	
 
 }
