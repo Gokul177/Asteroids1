@@ -34,13 +34,13 @@ public class AsteroidGame {
 				}	
 			}	
 		}
-		for(int i = 0; i < Gameobjects.size(); i ++){
-			for(int o; o < Projectile.size(); o++){
-				if((Gameobjects.get(i)).overlaps(Projectile.get(o))){
-					Projectile.remove(o);
-					if(Gameobject.get(i).rect().width()>100){
-						int x = Gameobject.get(i).getXpos();
-						int y = Gameobject.get(i).getYpos();
+		for(int i = 0; i < Asteriod.size(); i ++){
+			for(int o; o < bullet.size(); o++){
+				if((Asteriod.get(i)).overlaps(Projectile.get(o))){
+					bullet.remove(o);
+					if(Asteriod.get(i).rect().width()>100){
+						int x = Asteriod.get(i).getXpos();
+						int y = Asteriod.get(i).getYpos();
 						double z = (int)(Math.random()*2);
 						int ax = x + Math.cos(z)*50;
 						int ay = y + Math.sin(z)*50;
@@ -48,11 +48,11 @@ public class AsteroidGame {
 						int by = y + Math.sin(z)*50;
 						//new asteriod a at (ax,ay) and radius of 50
 						//new asteriod b at (bx,by) and radius of fifty
-						Gameobject.add(a);
-						Gameobject.add(b);
+						Asteriod.add(a);
+						Asteriod.add(b);
 						score++;
 					else{
-						Gameobject.remove(i);
+						Asteriod.remove(i);
 						score++;
 					}	
 				}		
