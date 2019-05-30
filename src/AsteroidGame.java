@@ -8,6 +8,7 @@ public class AsteroidGame {
 	String direction;
 	int numBullets = 0;
 	int index = 0;
+	int score = 0;
 	public AsteroidGame() {
 		 alive = new ProjectileShip(500, 300);
 	}
@@ -37,9 +38,9 @@ public class AsteroidGame {
 			for(int o; o < Projectile.size(); o++){
 				if((Gameobjects.get(i)).overlaps(Projectile.get(o))){
 					Projectile.remove(o);
-					if(//Gameobject.get(i).isBig){
-						int x = Gameobject.get(i)//.getXpos
-						int y = Gameobject.get(i)//.getYpos
+					if(Gameobject.get(i).rect().width()>100){
+						int x = Gameobject.get(i).getXpos();
+						int y = Gameobject.get(i).getYpos();
 						double z = (int)(Math.random()*2);
 						int ax = x + Math.cos(z)*50;
 						int ay = y + Math.sin(z)*50;
@@ -49,9 +50,10 @@ public class AsteroidGame {
 						//new asteriod b at (bx,by) and radius of fifty
 						Gameobject.add(a);
 						Gameobject.add(b);
-						
+						score++;
 					else{
-						Gameobject.remove(i)
+						Gameobject.remove(i);
+						score++;
 					}	
 				}		
 			}
