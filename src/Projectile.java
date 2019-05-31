@@ -19,6 +19,7 @@ public class Projectile extends JPanel implements ActionListener {
 	private int X ;
 	private int Y;
 	double rot;
+	private Rectangle rect;
 	
 	public Projectile (ProjectileShip s, int rotation){
 		System.out.println("projectile..");
@@ -27,6 +28,7 @@ public class Projectile extends JPanel implements ActionListener {
 		rot = rotation;
 		pos = s.getY();
 		tm.start();
+		rect = new Rectangle(X,Y,1,1);
 		
 	}
 	Timer tm = new Timer(1, this);
