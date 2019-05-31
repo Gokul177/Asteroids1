@@ -52,9 +52,10 @@ public class AsteroidGame {
 						Asteriod.add(b);
 						score++;
 					else{
-						Asteriod.remove(i);
+						
 						score++;
-					}	
+					}
+					Asteriod.remove(i);	
 				}		
 			}
 		}
