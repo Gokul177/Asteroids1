@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +16,8 @@ import javax.swing.InputMap;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
+
+import javafx.scene.layout.Border;
 
 public class AsteroidsGameRunner {
 		private JPanel panel;
@@ -50,16 +53,15 @@ public class AsteroidsGameRunner {
 				@Override
 				public void paintComponent(Graphics g) {
 					super.paintComponent(g);
-			        g.setColor(Color.gray);
-			        g.fillOval(100, 100, 100, 100);
 					Toolkit.getDefaultToolkit().sync();
 				//	 game.createAsteroid();
+					game.drawIntro(g);
 					game.draw(g);
 				}
 			};
 			panel.setBackground(new Color(50, 50, 50));
 			panel.setPreferredSize(new Dimension(WIDTH,HEIGHT));
-			frame.setLocation(WIDTH/10, HEIGHT/10);
+			frame.setLocation(WIDTH/20, HEIGHT/20);
 
 			mapKeyStrokesToActions(panel);
 			
@@ -78,7 +80,7 @@ public class AsteroidsGameRunner {
 			});
 			timer.start();
 			}
-
+		
 		// this method is called every time the timer goes off (which right now is every 10 milliseconds = 100 times per second
 		protected void updateGame() {
 			/*int i=0;
@@ -97,7 +99,7 @@ public class AsteroidsGameRunner {
 			}
 			if(game.alive.collide()){
 				System.out.println("YOU DIED!");
-				System.out.println(score);
+				
 				game.alive.resetShip();
 			}
 		//	game.movewith();
@@ -196,5 +198,5 @@ public class AsteroidsGameRunner {
 	        g.setColor(Color.red);
 	        g.drawOval(100, 10, 30, 40);
 	    }
-
+		
 }

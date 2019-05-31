@@ -1,14 +1,15 @@
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
 public class AsteroidGame {
 	ProjectileShip alive;
-	ArrayList<Projectile> bullet = new ArrayList<Projectile>();;
+	ArrayList<Projectile> bullet = new ArrayList<Projectile>();
 	ArrayList<Gameobject> Asteroid = new ArrayList<Gameobject>();
 	String direction;
 	int numBullets = 0;
 	int index = 0;
-	int score = 0;
+	static int scoreTotal = 0;
 	public AsteroidGame() {
 		 alive = new ProjectileShip(500, 300);
 	}
@@ -19,52 +20,24 @@ public class AsteroidGame {
 		alive.move(s);
 	
 	}
-
+	public int score() {
+		int total = 0;
+		for(Projectile b : bullet) {
+			total += b.scoreTotal;
+		}
+		return total;
+	}
 	public void shoot() {
-			bullet.add(new Projectile(alive,alive.rotation1));
+		    Projectile p = new Projectile(alive,alive.rotation1);
+			bullet.add(p);
+			p.add(Asteroid);
 			numBullets+=1;
 			System.out.println("number of bullet " + numBullets);
 	}
 
-	public boolean collide() {
-		for(int i = 0; i < Gameobjects.size(); i ++){
-			if(Gameobjects.get(i).overlaps(ProjectileShip)){
-				return true;
-				//end game
-				}	
-			}	
-		}
-		for(int i = Asteriod.size(); i > 0; i --){
-			for(int o = bullet.size(); o > 0; o++){
-				if((Asteriod.get(i)).overlaps(Projectile.get(o))){
-					bullet.remove(o);
-					if(Asteriod.get(i).rect().width()>100){
-						int x = Asteriod.get(i).getXpos();
-						int y = Asteriod.get(i).getYpos();
-						double z = (int)(Math.random()*2);
-						int ax = x + Math.cos(z)*50;
-						int ay = y + Math.sin(z)*50;
-						int bx = x + Math.cos(z)*50;
-						int by = y + Math.sin(z)*50;
-						//asteriod a = new Gameobject;
-						//Rectangle a = (Rectangle) a (ax,ay,50,50);
-						//asteriod b = new Gameobject;
-						//Rectangle b = (Rectangle) b (bx,by,50,50);
-						//Asteriod.add(a);
-						//Asteriod.add(b);
-						score++;
-					else{
-						
-						score++;
-					}
-					Asteriod.remove(i);	
-				}		
-			}
-		}
-		return false;
-	}
+	
 	public void createAsteroid() {
-		Gameobject ast = new Gameobject(alive);
+		Gameobject ast = new Gameobject();
 			Asteroid.add(ast);
 			
 	}
@@ -74,19 +47,19 @@ public class AsteroidGame {
 		createAsteroid();
 		ArrayList<Gameobject> movingA = new ArrayList<>();
 			for(int i = 1; i< Asteroid.size()-1; i++) {
-			if( Asteroid.get(i).overlaps(Asteroid.get(i-1))) {
+			if(Asteroid.get(i).overlaps(Asteroid.get(i-1))) {
 				movingA.add(Asteroid.get(i));
 			}else {
 				Asteroid.get(i).draw(g);
 			}
 		}	
 			for (Gameobject p : movingA) {
-				System.out.println("removedAsteroid");
+			//	System.out.println("removedAsteroid");
 				Asteroid.remove(p);
-			}			
+			}	
 		ArrayList<Projectile> bulletToRemove = new ArrayList<>();
 		for (Projectile p:bullet) {
-			if (p.pos <= -1000) {  // upper bound ?
+			if (p.pos <= -1000) {  
 				bulletToRemove.add(p);
 			} else {
 				p.draw(g);
@@ -96,9 +69,10 @@ public class AsteroidGame {
 			//System.out.println("removed bullet");
 			bullet.remove(p);
 		}			
-				
+	//	alive.add(Asteroid);		
 	}
-	
+
+
 	public void drawIntro(Graphics g) {
 		g.setColor(Color.white);
 	
@@ -124,7 +98,9 @@ public class AsteroidGame {
 		g.drawString("RIGHT - Rotate Right", 10, 90);
 		g.drawString("  ", 10, 100);
 		g.drawString("LEFT - Rotate Left", 10, 110);
+		g.drawString("Asteroids Hit: " + scoreTotal, 950, 50);
 		
-	}	
+	}
+	    	
 
 }

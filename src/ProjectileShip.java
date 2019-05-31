@@ -6,6 +6,7 @@ import java.awt.Rectangle;
 import java.awt.image.ImageObserver;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
@@ -19,12 +20,13 @@ public class ProjectileShip extends JPanel{
 	private int X;
 	private int Y;
 	
-
+	public Rectangle rect;
 	
 	public int speed;
 	public static Image ship;
 	public int rotation1= 0;
-
+	ArrayList<Gameobject> Asteroid;
+	
 	public ProjectileShip (int x, int y) {
 	  this.X = x;
 	  this.Y = y;
@@ -49,14 +51,24 @@ public class ProjectileShip extends JPanel{
 	public void draw(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
 		if (rotation1 != 0) {
-		  	// g.drawImage(ship,this.X, this.Y, 70, 70, null);
 			g2.rotate(Math.toRadians(rotation1));
 		}
-		
 		g.drawImage(ship, this.X, this.Y, null);
+		if (Asteroid != null) {
+			for (Gameobject gobj : Asteroid) {
+				if ((gobj.getX() < this.X && gobj.getX() + 90 > this.X)
+						&& (gobj.getY() < this.getY() && gobj.getY() + 100 > this.getY())) {
+					g2.dispose();
+					g.drawString("GAME OVER", 400, 100);
+					return;
+
+				}
+			}
+		}
 		if (rotation1 != 0) {
 		   g2.rotate(-1 * Math.toRadians(rotation1));
 		}
+		
 		repaint();
 		
 	}
@@ -113,6 +125,13 @@ public class ProjectileShip extends JPanel{
 		
 	}
 
-	
-	
+	public Rectangle rect() {
+		return this.rect;
+	}
+	public boolean overlaps (Gameobject a) {
+		return this.rect.intersects(a.rect());
+	}
+	public void add(ArrayList<Gameobject> Asteroid) {
+		this.Asteroid = Asteroid;
+	}
 }
