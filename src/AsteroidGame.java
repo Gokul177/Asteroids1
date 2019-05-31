@@ -46,10 +46,12 @@ public class AsteroidGame {
 						int ay = y + Math.sin(z)*50;
 						int bx = x + Math.cos(z)*50;
 						int by = y + Math.sin(z)*50;
-						//new asteriod a at (ax,ay) and radius of 50
-						//new asteriod b at (bx,by) and radius of fifty
-						Asteriod.add(a);
-						Asteriod.add(b);
+						//asteriod a = new Gameobject;
+						//Rectangle a = (Rectangle) a (ax,ay,50,50);
+						//asteriod b = new Gameobject;
+						//Rectangle b = (Rectangle) b (bx,by,50,50);
+						//Asteriod.add(a);
+						//Asteriod.add(b);
 						score++;
 					else{
 						
