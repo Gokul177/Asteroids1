@@ -34,8 +34,8 @@ public class AsteroidGame {
 				}	
 			}	
 		}
-		for(int i = 0; i < Asteriod.size(); i ++){
-			for(int o; o < bullet.size(); o++){
+		for(int i = Asteriod.size(); i > 0; i --){
+			for(int o = bullet.size(); o > 0; o++){
 				if((Asteriod.get(i)).overlaps(Projectile.get(o))){
 					bullet.remove(o);
 					if(Asteriod.get(i).rect().width()>100){
