@@ -12,7 +12,7 @@ public class Gameobject implements ActionListener{
 	private Rectangle rect;
 	int pos;
 	
-	public Gameobject(ProjectileShip s) {
+	public Gameobject() {
 	  pos = (int)(800 * Math.random());
 	  this.X = (int)(400 * Math.random());
 	  rect = new Rectangle(this.X, pos);
@@ -23,9 +23,17 @@ public class Gameobject implements ActionListener{
 		
 	
 	public void draw(Graphics g) {
-	if( this.X <=800)
-		g.drawOval(this.X, pos, 100, 100);
+	public void draw(Graphics g) {
+	if( (this.X <=1200 && this.X >=100 )&& pos >= -80 ) {
+		Graphics G = g.create();
+		G.setColor(new Color(102, 51, 0));
 	
+		
+		G.fillOval(this.X, pos, 100, 100);
+		G.dispose();
+	}
+	}
+
 	}
 /*	public int area() {
 		
