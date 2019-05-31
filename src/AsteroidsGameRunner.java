@@ -97,6 +97,7 @@ public class AsteroidsGameRunner {
 			}
 			if(game.alive.collide()){
 				System.out.println("YOU DIED!");
+				System.out.println(score);
 				game.alive.resetShip();
 			}
 		//	game.movewith();
