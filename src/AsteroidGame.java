@@ -96,6 +96,32 @@ public class AsteroidGame {
 				
 	}
 	
+	public void drawIntro(Graphics g) {
+		g.setColor(Color.white);
+	
+		g.drawString("-------     -------    --------   -------   ------   --------  ------    -------",
+
+				250, 150);
+		g.drawString("||        ||     ||                        ||         |                |          )    ||          ||      ||         |             |",
+				250, 170);   
+		g.drawString("||----||       ------            ||         |------     |  ---/     ||          ||      ||         |             |",
+				250, 190);
+		g.drawString("||        ||                  ||           ||         |                |          |    ||          ||      ||         |             |",
+				250, 210); 
+		g.drawString("||        ||      ------||           ||         |------    |           |   ||-----||   --|--     |------/",
+				250, 230);
+		g.drawString("Controls", 10, 10);
+		g.drawString("-----", 10, 20);
+		g.drawString("UP - Forward", 10, 30);
+		g.drawString("  ", 10, 40);
+		g.drawString("DOWN - Backward", 10, 50);
+		g.drawString("  ", 10, 60);
+		g.drawString("SPACE - Shoot", 10, 70);
+		g.drawString("  ", 10, 80);
+		g.drawString("RIGHT - Rotate Right", 10, 90);
+		g.drawString("  ", 10, 100);
+		g.drawString("LEFT - Rotate Left", 10, 110);
 		
+	}	
 
 }
